@@ -1,0 +1,96 @@
+{
+  "table_source": "orders",
+  "table_target": "orders",
+  "migration_complexity": "high",
+  "complexity_reason": "Statuts encodés sur 20+ valeurs, dates mixtes, FK client",
+  "mappings": [
+    {
+      "source_col": "ord_id",
+      "target_col": "legacy_ord_id",
+      "transform": "direct",
+      "confidence": 0.99,
+      "notes": "PK source"
+    },
+    {
+      "source_col": "ord_ref",
+      "target_col": "order_reference",
+      "transform": "direct",
+      "confidence": 0.97,
+      "notes": "Référence commande"
+    },
+    {
+      "source_col": "ord_cst_id",
+      "target_col": "customer_id",
+      "transform": "direct",
+      "confidence": 0.95,
+      "notes": "FK client"
+    },
+    {
+      "source_col": "ord_date",
+      "target_col": "order_date",
+      "transform": "normalize_date",
+      "confidence": 0.7,
+      "notes": "Formats mixtes ISO/FR/US/compact"
+    },
+    {
+      "source_col": "ord_exp_deliver",
+      "target_col": "expected_delivery",
+      "transform": "normalize_date",
+      "confidence": 0.7,
+      "notes": "Formats mixtes"
+    },
+    {
+      "source_col": "ord_delivered",
+      "target_col": "delivered_at",
+      "transform": "normalize_date",
+      "confidence": 0.68,
+      "notes": "Nullable — formats mixtes"
+    },
+    {
+      "source_col": "ord_status",
+      "target_col": "status",
+      "transform": "normalize_status",
+      "confidence": 0.65,
+      "notes": "P/PEND/pending/0 → pending etc."
+    },
+    {
+      "source_col": "ord_total_ht",
+      "target_col": "subtotal_ht",
+      "transform": "cast_numeric",
+      "confidence": 0.88,
+      "notes": "Montant HT"
+    },
+    {
+      "source_col": "ord_tva",
+      "target_col": "tva_rate",
+      "transform": "direct",
+      "confidence": 0.9,
+      "notes": "Taux TVA (0/7/19)"
+    },
+    {
+      "source_col": "ord_channel",
+      "target_col": "channel",
+      "transform": "uppercase",
+      "confidence": 0.93,
+      "notes": "WEB/TEL/STORE/API"
+    },
+    {
+      "source_col": "ord_notes",
+      "target_col": "notes",
+      "transform": "direct",
+      "confidence": 0.97,
+      "notes": "Notes libres"
+    }
+  ],
+  "unmapped_source": [],
+  "unmapped_target": [
+    "order_id",
+    "migrated_at"
+  ],
+  "migration_risks": [
+    "Statuts encodés sur 20+ valeurs distinctes",
+    "Dates en 4 formats différents",
+    "FK ord_cst_id → résoudre via legacy_cst_id",
+    "Totaux HT manquants (~1%)"
+  ]
+}

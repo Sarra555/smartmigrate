@@ -1,0 +1,26 @@
+# Secrets
+.env
+
+# Base de données
+*.db
+
+# Environnement Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Données brutes (trop lourdes)
+data/raw/
+
+# Fichiers temporaires
+debug_migration.py
+*.zip
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/

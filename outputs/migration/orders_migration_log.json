@@ -1,0 +1,61 @@
+{
+  "run_id": "run_2024_v1",
+  "table": "orders",
+  "status": "success",
+  "load_stats": {
+    "source_count": 2000,
+    "target_count": 1802,
+    "filtered": 198,
+    "load_rate": 0.901
+  },
+  "reconciliation": {
+    "source_count": 2000,
+    "target_count": 1802,
+    "count_match": true,
+    "count_diff": 198,
+    "column_checks": {
+      "legacy_ord_id": {
+        "target_min": 1.0,
+        "target_max": 2000.0,
+        "target_mean": 1001.52,
+        "null_rate": 0.0
+      },
+      "customer_id": {
+        "target_min": 1.0,
+        "target_max": 998.0,
+        "target_mean": 266.1,
+        "null_rate": 0.0
+      },
+      "subtotal_ht": {
+        "target_min": 30.3,
+        "target_max": 14999.31,
+        "target_mean": 7480.38,
+        "null_rate": 0.0094
+      },
+      "tva_rate": {
+        "target_min": 0.0,
+        "target_max": 19.0,
+        "target_mean": 13.43,
+        "null_rate": 0.0
+      }
+    },
+    "sample_check": {
+      "legacy_ord_id": {
+        "unique_ok": true,
+        "duplicates": 0
+      },
+      "order_reference": {
+        "unique_ok": true,
+        "duplicates": 0
+      },
+      "customer_id": {
+        "unique_ok": false,
+        "duplicates": 1304
+      }
+    },
+    "overall_ok": false
+  },
+  "drift_issues": [],
+  "errors": [],
+  "timestamp": "2026-07-03T23:05:41.873300"
+}

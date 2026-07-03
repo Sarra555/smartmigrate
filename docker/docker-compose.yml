@@ -1,0 +1,58 @@
+version: "3.9"
+
+services:
+
+  # ── Source : simule l'ERP legacy ──────────────────────────
+  erp_source:
+    image: postgres:15-alpine
+    container_name: smartmigrate_source
+    environment:
+      POSTGRES_DB:       erp_legacy
+      POSTGRES_USER:     erp_user
+      POSTGRES_PASSWORD: erp_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - source_data:/var/lib/postgresql/data
+      - ./init_source.sql:/docker-entrypoint-initdb.d/01_init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U erp_user -d erp_legacy"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ── Destination : simule le Cloud PostgreSQL / Supabase ───
+  cloud_target:
+    image: postgres:15-alpine
+    container_name: smartmigrate_target
+    environment:
+      POSTGRES_DB:       cloud_dw
+      POSTGRES_USER:     dw_user
+      POSTGRES_PASSWORD: dw_pass
+    ports:
+      - "5433:5432"
+    volumes:
+      - target_data:/var/lib/postgresql/data
+      - ./schema_target.sql:/docker-entrypoint-initdb.d/01_schema.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dw_user -d cloud_dw"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ── Prefect Server (orchestration) ────────────────────────
+  prefect_server:
+    image: prefecthq/prefect:3-latest
+    container_name: smartmigrate_prefect
+    command: prefect server start --host 0.0.0.0
+    environment:
+      PREFECT_API_DATABASE_CONNECTION_URL: "sqlite+aiosqlite:///prefect.db"
+    ports:
+      - "4200:4200"
+    volumes:
+      - prefect_data:/root/.prefect
+
+volumes:
+  source_data:
+  target_data:
+  prefect_data:

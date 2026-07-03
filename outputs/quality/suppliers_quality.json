@@ -1,0 +1,175 @@
+{
+  "table": "suppliers",
+  "score": 0.5556,
+  "approved": false,
+  "anomalies": [],
+  "rule_results": [
+    {
+      "rule_id": "sup_id__not_null",
+      "column": "sup_id",
+      "type": "expect_column_values_to_not_be_null",
+      "severity": "CRITICAL",
+      "threshold": 1.0,
+      "description": "La colonne sup_id ne doit contenir aucun NULL",
+      "passed": true,
+      "detail": "✓ Aucun null"
+    },
+    {
+      "rule_id": "sup_id__unique",
+      "column": "sup_id",
+      "type": "expect_column_values_to_be_unique",
+      "severity": "HIGH",
+      "description": "sup_id doit être unique",
+      "passed": true,
+      "detail": "✓ Toutes les valeurs sont uniques"
+    },
+    {
+      "rule_id": "sup_name__not_null",
+      "column": "sup_name",
+      "type": "expect_column_values_to_not_be_null",
+      "severity": "CRITICAL",
+      "threshold": 1.0,
+      "description": "La colonne sup_name ne doit contenir aucun NULL",
+      "passed": true,
+      "detail": "✓ Aucun null"
+    },
+    {
+      "rule_id": "sup_country__non_negative",
+      "column": "sup_country",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "sup_country doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "sup_contact__null_rate",
+      "column": "sup_contact",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.072,
+      "description": "Taux de null < 7% pour sup_contact",
+      "passed": true,
+      "detail": "Taux null : 6.0% (seuil 7%)"
+    },
+    {
+      "rule_id": "sup_contact__non_negative",
+      "column": "sup_contact",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "sup_contact doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "sup_email__null_rate",
+      "column": "sup_email",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.144,
+      "description": "Taux de null < 14% pour sup_email",
+      "passed": true,
+      "detail": "Taux null : 12.0% (seuil 14%)"
+    },
+    {
+      "rule_id": "sup_email__non_negative",
+      "column": "sup_email",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "sup_email doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "sup_phone__null_rate",
+      "column": "sup_phone",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.072,
+      "description": "Taux de null < 7% pour sup_phone",
+      "passed": true,
+      "detail": "Taux null : 6.0% (seuil 7%)"
+    },
+    {
+      "rule_id": "sup_phone__non_negative",
+      "column": "sup_phone",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "sup_phone doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "sup_rating__null_rate",
+      "column": "sup_rating",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.048,
+      "description": "Taux de null < 5% pour sup_rating",
+      "passed": true,
+      "detail": "Taux null : 4.0% (seuil 5%)"
+    },
+    {
+      "rule_id": "sup_rating__non_negative",
+      "column": "sup_rating",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "sup_rating doit être >= 0",
+      "passed": true,
+      "detail": "✓ Toutes >= 0"
+    },
+    {
+      "rule_id": "sup_active__non_negative",
+      "column": "sup_active",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "sup_active doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "sup_since__null_rate",
+      "column": "sup_since",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.024,
+      "description": "Taux de null < 2% pour sup_since",
+      "passed": true,
+      "detail": "Taux null : 2.0% (seuil 2%)"
+    },
+    {
+      "rule_id": "sup_since__non_negative",
+      "column": "sup_since",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "sup_since doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    }
+  ],
+  "score_detail": {
+    "CRITICAL": {
+      "total": 2,
+      "passed": 2,
+      "score": 1.0
+    },
+    "HIGH": {
+      "total": 8,
+      "passed": 2,
+      "score": 0.25
+    },
+    "WARNING": {
+      "total": 5,
+      "passed": 5,
+      "score": 1.0
+    }
+  },
+  "generated_at": "2026-06-29T12:17:40.571378"
+}

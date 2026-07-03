@@ -1,0 +1,61 @@
+{
+  "table_source": "order_lines",
+  "table_target": "order_lines",
+  "migration_complexity": "medium",
+  "complexity_reason": "Quantités nulles, FK doubles",
+  "mappings": [
+    {
+      "source_col": "line_id",
+      "target_col": "legacy_line_id",
+      "transform": "direct",
+      "confidence": 0.99,
+      "notes": "PK source"
+    },
+    {
+      "source_col": "line_ord_id",
+      "target_col": "order_id",
+      "transform": "direct",
+      "confidence": 0.95,
+      "notes": "FK commande"
+    },
+    {
+      "source_col": "line_prod_id",
+      "target_col": "product_id",
+      "transform": "direct",
+      "confidence": 0.95,
+      "notes": "FK produit"
+    },
+    {
+      "source_col": "line_qty",
+      "target_col": "quantity",
+      "transform": "cast_numeric",
+      "confidence": 0.78,
+      "notes": "Nulls → 1"
+    },
+    {
+      "source_col": "line_unit_price",
+      "target_col": "unit_price",
+      "transform": "cast_numeric",
+      "confidence": 0.92,
+      "notes": "Prix unitaire"
+    },
+    {
+      "source_col": "line_discount",
+      "target_col": "discount_pct",
+      "transform": "cast_numeric",
+      "confidence": 0.85,
+      "notes": "% remise — nulls → 0"
+    }
+  ],
+  "unmapped_source": [
+    "line_total"
+  ],
+  "unmapped_target": [
+    "line_id",
+    "migrated_at"
+  ],
+  "migration_risks": [
+    "Quantités nulles (~2%) → remplacées par 1",
+    "line_total colonne calculée côté cible"
+  ]
+}

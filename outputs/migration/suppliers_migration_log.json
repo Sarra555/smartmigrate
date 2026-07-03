@@ -1,0 +1,51 @@
+{
+  "run_id": "run_2024_v1",
+  "table": "suppliers",
+  "status": "success",
+  "load_stats": {
+    "source_count": 50,
+    "target_count": 50,
+    "filtered": 0,
+    "load_rate": 1.0
+  },
+  "reconciliation": {
+    "source_count": 50,
+    "target_count": 50,
+    "count_match": true,
+    "count_diff": 0,
+    "column_checks": {
+      "legacy_sup_id": {
+        "target_min": 1.0,
+        "target_max": 50.0,
+        "target_mean": 25.5,
+        "null_rate": 0.0
+      },
+      "rating": {
+        "target_min": 0.0,
+        "target_max": 5.0,
+        "target_mean": 3.22,
+        "null_rate": 0.0
+      },
+      "is_active": {
+        "target_min": 0.0,
+        "target_max": 1.0,
+        "target_mean": 0.88,
+        "null_rate": 0.0
+      }
+    },
+    "sample_check": {
+      "legacy_sup_id": {
+        "unique_ok": true,
+        "duplicates": 0
+      },
+      "email": {
+        "unique_ok": true,
+        "duplicates": 0
+      }
+    },
+    "overall_ok": true
+  },
+  "drift_issues": [],
+  "errors": [],
+  "timestamp": "2026-07-03T22:57:56.029548"
+}

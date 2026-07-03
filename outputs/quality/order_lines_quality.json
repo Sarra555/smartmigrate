@@ -1,0 +1,135 @@
+{
+  "table": "order_lines",
+  "score": 1.0,
+  "approved": true,
+  "anomalies": [],
+  "rule_results": [
+    {
+      "rule_id": "line_id__not_null",
+      "column": "line_id",
+      "type": "expect_column_values_to_not_be_null",
+      "severity": "CRITICAL",
+      "threshold": 1.0,
+      "description": "La colonne line_id ne doit contenir aucun NULL",
+      "passed": true,
+      "detail": "✓ Aucun null"
+    },
+    {
+      "rule_id": "line_id__unique",
+      "column": "line_id",
+      "type": "expect_column_values_to_be_unique",
+      "severity": "HIGH",
+      "description": "line_id doit être unique",
+      "passed": true,
+      "detail": "✓ Toutes les valeurs sont uniques"
+    },
+    {
+      "rule_id": "line_ord_id__not_null",
+      "column": "line_ord_id",
+      "type": "expect_column_values_to_not_be_null",
+      "severity": "CRITICAL",
+      "threshold": 1.0,
+      "description": "La colonne line_ord_id ne doit contenir aucun NULL",
+      "passed": true,
+      "detail": "✓ Aucun null"
+    },
+    {
+      "rule_id": "line_prod_id__not_null",
+      "column": "line_prod_id",
+      "type": "expect_column_values_to_not_be_null",
+      "severity": "CRITICAL",
+      "threshold": 1.0,
+      "description": "La colonne line_prod_id ne doit contenir aucun NULL",
+      "passed": true,
+      "detail": "✓ Aucun null"
+    },
+    {
+      "rule_id": "line_qty__null_rate",
+      "column": "line_qty",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.029,
+      "description": "Taux de null < 3% pour line_qty",
+      "passed": true,
+      "detail": "Taux null : 2.4% (seuil 3%)"
+    },
+    {
+      "rule_id": "line_qty__non_negative",
+      "column": "line_qty",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "line_qty doit être >= 0",
+      "passed": true,
+      "detail": "✓ Toutes >= 0"
+    },
+    {
+      "rule_id": "line_unit_price__not_null",
+      "column": "line_unit_price",
+      "type": "expect_column_values_to_not_be_null",
+      "severity": "CRITICAL",
+      "threshold": 1.0,
+      "description": "La colonne line_unit_price ne doit contenir aucun NULL",
+      "passed": true,
+      "detail": "✓ Aucun null"
+    },
+    {
+      "rule_id": "line_discount__null_rate",
+      "column": "line_discount",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.063,
+      "description": "Taux de null < 6% pour line_discount",
+      "passed": true,
+      "detail": "Taux null : 5.3% (seuil 6%)"
+    },
+    {
+      "rule_id": "line_discount__non_negative",
+      "column": "line_discount",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "line_discount doit être >= 0",
+      "passed": true,
+      "detail": "✓ Toutes >= 0"
+    },
+    {
+      "rule_id": "line_total__null_rate",
+      "column": "line_total",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.038,
+      "description": "Taux de null < 4% pour line_total",
+      "passed": true,
+      "detail": "Taux null : 3.2% (seuil 4%)"
+    },
+    {
+      "rule_id": "line_total__non_negative",
+      "column": "line_total",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "line_total doit être >= 0",
+      "passed": true,
+      "detail": "✓ Toutes >= 0"
+    }
+  ],
+  "score_detail": {
+    "CRITICAL": {
+      "total": 4,
+      "passed": 4,
+      "score": 1.0
+    },
+    "HIGH": {
+      "total": 4,
+      "passed": 4,
+      "score": 1.0
+    },
+    "WARNING": {
+      "total": 3,
+      "passed": 3,
+      "score": 1.0
+    }
+  },
+  "generated_at": "2026-06-29T12:08:40.364357"
+}

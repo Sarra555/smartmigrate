@@ -1,0 +1,236 @@
+{
+  "table": "orders",
+  "score": 0.6111,
+  "approved": false,
+  "anomalies": [
+    {
+      "type": "CRITICAL_NULLS",
+      "severity": "HIGH",
+      "column": "ord_date",
+      "detail": "71 nulls sur colonne critique (3.5%)",
+      "impact": "Bloquant — insertion impossible en base cible (NOT NULL)"
+    },
+    {
+      "type": "HIGH_NULL_RATE",
+      "severity": "MEDIUM",
+      "column": "ord_delivered",
+      "detail": "17.8% de valeurs manquantes",
+      "impact": "Perte de données potentielle après migration"
+    },
+    {
+      "type": "HIGH_NULL_RATE",
+      "severity": "MEDIUM",
+      "column": "ord_notes",
+      "detail": "89.3% de valeurs manquantes",
+      "impact": "Perte de données potentielle après migration"
+    }
+  ],
+  "rule_results": [
+    {
+      "rule_id": "ord_id__not_null",
+      "column": "ord_id",
+      "type": "expect_column_values_to_not_be_null",
+      "severity": "CRITICAL",
+      "threshold": 1.0,
+      "description": "La colonne ord_id ne doit contenir aucun NULL",
+      "passed": true,
+      "detail": "✓ Aucun null"
+    },
+    {
+      "rule_id": "ord_id__unique",
+      "column": "ord_id",
+      "type": "expect_column_values_to_be_unique",
+      "severity": "HIGH",
+      "description": "ord_id doit être unique",
+      "passed": true,
+      "detail": "✓ Toutes les valeurs sont uniques"
+    },
+    {
+      "rule_id": "ord_ref__non_negative",
+      "column": "ord_ref",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "ord_ref doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "ord_ref__unique",
+      "column": "ord_ref",
+      "type": "expect_column_values_to_be_unique",
+      "severity": "HIGH",
+      "description": "ord_ref doit être unique",
+      "passed": true,
+      "detail": "✓ Toutes les valeurs sont uniques"
+    },
+    {
+      "rule_id": "ord_cst_id__not_null",
+      "column": "ord_cst_id",
+      "type": "expect_column_values_to_not_be_null",
+      "severity": "CRITICAL",
+      "threshold": 1.0,
+      "description": "La colonne ord_cst_id ne doit contenir aucun NULL",
+      "passed": true,
+      "detail": "✓ Aucun null"
+    },
+    {
+      "rule_id": "ord_date__not_null",
+      "column": "ord_date",
+      "type": "expect_column_values_to_not_be_null",
+      "severity": "CRITICAL",
+      "threshold": 1.0,
+      "description": "La colonne ord_date ne doit contenir aucun NULL",
+      "passed": false,
+      "detail": "71 nulls trouvés"
+    },
+    {
+      "rule_id": "ord_exp_deliver__null_rate",
+      "column": "ord_exp_deliver",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.032,
+      "description": "Taux de null < 3% pour ord_exp_deliver",
+      "passed": true,
+      "detail": "Taux null : 2.6% (seuil 3%)"
+    },
+    {
+      "rule_id": "ord_exp_deliver__non_negative",
+      "column": "ord_exp_deliver",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "ord_exp_deliver doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "ord_delivered__null_rate",
+      "column": "ord_delivered",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.213,
+      "description": "Taux de null < 21% pour ord_delivered",
+      "passed": true,
+      "detail": "Taux null : 17.8% (seuil 21%)"
+    },
+    {
+      "rule_id": "ord_delivered__non_negative",
+      "column": "ord_delivered",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "ord_delivered doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "ord_status__not_null",
+      "column": "ord_status",
+      "type": "expect_column_values_to_not_be_null",
+      "severity": "CRITICAL",
+      "threshold": 1.0,
+      "description": "La colonne ord_status ne doit contenir aucun NULL",
+      "passed": true,
+      "detail": "✓ Aucun null"
+    },
+    {
+      "rule_id": "ord_total_ht__null_rate",
+      "column": "ord_total_ht",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.012,
+      "description": "Taux de null < 1% pour ord_total_ht",
+      "passed": true,
+      "detail": "Taux null : 1.0% (seuil 1%)"
+    },
+    {
+      "rule_id": "ord_total_ht__non_negative",
+      "column": "ord_total_ht",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "ord_total_ht doit être >= 0",
+      "passed": true,
+      "detail": "✓ Toutes >= 0"
+    },
+    {
+      "rule_id": "ord_tva__null_rate",
+      "column": "ord_tva",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.064,
+      "description": "Taux de null < 6% pour ord_tva",
+      "passed": true,
+      "detail": "Taux null : 5.3% (seuil 6%)"
+    },
+    {
+      "rule_id": "ord_tva__non_negative",
+      "column": "ord_tva",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "ord_tva doit être >= 0",
+      "passed": true,
+      "detail": "✓ Toutes >= 0"
+    },
+    {
+      "rule_id": "ord_channel__null_rate",
+      "column": "ord_channel",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.056,
+      "description": "Taux de null < 6% pour ord_channel",
+      "passed": true,
+      "detail": "Taux null : 4.7% (seuil 6%)"
+    },
+    {
+      "rule_id": "ord_channel__non_negative",
+      "column": "ord_channel",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "ord_channel doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "ord_notes__null_rate",
+      "column": "ord_notes",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.3,
+      "description": "Taux de null < 30% pour ord_notes",
+      "passed": false,
+      "detail": "Taux null : 89.3% (seuil 30%)"
+    },
+    {
+      "rule_id": "ord_notes__non_negative",
+      "column": "ord_notes",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "ord_notes doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    }
+  ],
+  "score_detail": {
+    "CRITICAL": {
+      "total": 4,
+      "passed": 3,
+      "score": 0.75
+    },
+    "HIGH": {
+      "total": 9,
+      "passed": 4,
+      "score": 0.444
+    },
+    "WARNING": {
+      "total": 6,
+      "passed": 5,
+      "score": 0.833
+    }
+  },
+  "generated_at": "2026-06-29T11:59:27.559561"
+}

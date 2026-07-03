@@ -1,0 +1,199 @@
+{
+  "table": "products",
+  "score": 0.6129,
+  "approved": false,
+  "anomalies": [
+    {
+      "type": "NEGATIVE_VALUES",
+      "severity": "MEDIUM",
+      "column": "prod_stock",
+      "detail": "7 valeurs négatives (min=-1.0)",
+      "impact": "Violation contrainte CHECK >= 0 en base cible"
+    },
+    {
+      "type": "HIGH_NULL_RATE",
+      "severity": "MEDIUM",
+      "column": "prod_unit",
+      "detail": "20.0% de valeurs manquantes",
+      "impact": "Perte de données potentielle après migration"
+    }
+  ],
+  "rule_results": [
+    {
+      "rule_id": "prod_id__not_null",
+      "column": "prod_id",
+      "type": "expect_column_values_to_not_be_null",
+      "severity": "CRITICAL",
+      "threshold": 1.0,
+      "description": "La colonne prod_id ne doit contenir aucun NULL",
+      "passed": true,
+      "detail": "✓ Aucun null"
+    },
+    {
+      "rule_id": "prod_id__unique",
+      "column": "prod_id",
+      "type": "expect_column_values_to_be_unique",
+      "severity": "HIGH",
+      "description": "prod_id doit être unique",
+      "passed": true,
+      "detail": "✓ Toutes les valeurs sont uniques"
+    },
+    {
+      "rule_id": "prod_ref__not_null",
+      "column": "prod_ref",
+      "type": "expect_column_values_to_not_be_null",
+      "severity": "CRITICAL",
+      "threshold": 1.0,
+      "description": "La colonne prod_ref ne doit contenir aucun NULL",
+      "passed": true,
+      "detail": "✓ Aucun null"
+    },
+    {
+      "rule_id": "prod_ref__unique",
+      "column": "prod_ref",
+      "type": "expect_column_values_to_be_unique",
+      "severity": "HIGH",
+      "description": "prod_ref doit être unique",
+      "passed": true,
+      "detail": "✓ Toutes les valeurs sont uniques"
+    },
+    {
+      "rule_id": "prod_name__not_null",
+      "column": "prod_name",
+      "type": "expect_column_values_to_not_be_null",
+      "severity": "CRITICAL",
+      "threshold": 1.0,
+      "description": "La colonne prod_name ne doit contenir aucun NULL",
+      "passed": true,
+      "detail": "✓ Aucun null"
+    },
+    {
+      "rule_id": "prod_category__null_rate",
+      "column": "prod_category",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.056,
+      "description": "Taux de null < 6% pour prod_category",
+      "passed": true,
+      "detail": "Taux null : 4.7% (seuil 6%)"
+    },
+    {
+      "rule_id": "prod_category__non_negative",
+      "column": "prod_category",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "prod_category doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "prod_price__null_rate",
+      "column": "prod_price",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.024,
+      "description": "Taux de null < 2% pour prod_price",
+      "passed": true,
+      "detail": "Taux null : 2.0% (seuil 2%)"
+    },
+    {
+      "rule_id": "prod_price__non_negative",
+      "column": "prod_price",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "prod_price doit être >= 0",
+      "passed": true,
+      "detail": "✓ Toutes >= 0"
+    },
+    {
+      "rule_id": "prod_currency__non_negative",
+      "column": "prod_currency",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "prod_currency doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "prod_stock__non_negative",
+      "column": "prod_stock",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "prod_stock doit être >= 0",
+      "passed": false,
+      "detail": "7 valeurs < 0"
+    },
+    {
+      "rule_id": "prod_unit__null_rate",
+      "column": "prod_unit",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.24,
+      "description": "Taux de null < 24% pour prod_unit",
+      "passed": true,
+      "detail": "Taux null : 20.0% (seuil 24%)"
+    },
+    {
+      "rule_id": "prod_unit__non_negative",
+      "column": "prod_unit",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "prod_unit doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "prod_active__non_negative",
+      "column": "prod_active",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "prod_active doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "prod_created__null_rate",
+      "column": "prod_created",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.032,
+      "description": "Taux de null < 3% pour prod_created",
+      "passed": true,
+      "detail": "Taux null : 2.7% (seuil 3%)"
+    },
+    {
+      "rule_id": "prod_created__non_negative",
+      "column": "prod_created",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "prod_created doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    }
+  ],
+  "score_detail": {
+    "CRITICAL": {
+      "total": 3,
+      "passed": 3,
+      "score": 1.0
+    },
+    "HIGH": {
+      "total": 9,
+      "passed": 3,
+      "score": 0.333
+    },
+    "WARNING": {
+      "total": 4,
+      "passed": 4,
+      "score": 1.0
+    }
+  },
+  "generated_at": "2026-06-29T11:51:41.870443"
+}

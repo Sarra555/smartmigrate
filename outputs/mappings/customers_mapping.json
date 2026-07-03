@@ -1,0 +1,110 @@
+{
+  "table_source": "customers",
+  "table_target": "customers",
+  "migration_complexity": "high",
+  "complexity_reason": "Doublons email, statuts encodés, dates mixtes, pays non normalisés",
+  "mappings": [
+    {
+      "source_col": "cst_id",
+      "target_col": "legacy_cst_id",
+      "transform": "direct",
+      "confidence": 0.99,
+      "notes": "PK source"
+    },
+    {
+      "source_col": "cst_fname",
+      "target_col": "first_name",
+      "transform": "direct",
+      "confidence": 0.97,
+      "notes": "Prénom"
+    },
+    {
+      "source_col": "cst_lname",
+      "target_col": "last_name",
+      "transform": "direct",
+      "confidence": 0.97,
+      "notes": "Nom"
+    },
+    {
+      "source_col": "cst_company",
+      "target_col": "company_name",
+      "transform": "direct",
+      "confidence": 0.95,
+      "notes": "Société"
+    },
+    {
+      "source_col": "cst_email",
+      "target_col": "email",
+      "transform": "lowercase",
+      "confidence": 0.95,
+      "notes": "Email — lowercase + strip"
+    },
+    {
+      "source_col": "cst_phone",
+      "target_col": "phone",
+      "transform": "normalize_phone",
+      "confidence": 0.61,
+      "notes": "Formats mixtes → E.164"
+    },
+    {
+      "source_col": "cst_country",
+      "target_col": "country_code",
+      "transform": "normalize_country",
+      "confidence": 0.68,
+      "notes": "TN/Tunisia/Tunisie → ISO 2"
+    },
+    {
+      "source_col": "cst_city",
+      "target_col": "city",
+      "transform": "direct",
+      "confidence": 0.95,
+      "notes": "Ville"
+    },
+    {
+      "source_col": "cst_address",
+      "target_col": "address",
+      "transform": "direct",
+      "confidence": 0.9,
+      "notes": "Adresse"
+    },
+    {
+      "source_col": "cst_status",
+      "target_col": "status",
+      "transform": "normalize_status",
+      "confidence": 0.72,
+      "notes": "1/0/A/I/active → active/inactive"
+    },
+    {
+      "source_col": "cst_segment",
+      "target_col": "segment",
+      "transform": "direct",
+      "confidence": 0.9,
+      "notes": "B2B/B2C/VIP"
+    },
+    {
+      "source_col": "cst_created_dt",
+      "target_col": "created_at",
+      "transform": "normalize_date",
+      "confidence": 0.65,
+      "notes": "Formats dates mixtes → ISO"
+    },
+    {
+      "source_col": "cst_notes",
+      "target_col": "notes",
+      "transform": "direct",
+      "confidence": 0.97,
+      "notes": "Notes libres"
+    }
+  ],
+  "unmapped_source": [],
+  "unmapped_target": [
+    "customer_id",
+    "migrated_at"
+  ],
+  "migration_risks": [
+    "~3% doublons email → dédupliqués",
+    "Pays non normalisés (TN/Tunisia/Tunisie)",
+    "Statuts encodés sur 6 valeurs distinctes",
+    "Dates en 4 formats différents"
+  ]
+}

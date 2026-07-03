@@ -1,0 +1,305 @@
+{
+  "table": "customers",
+  "score": 0.2564,
+  "approved": false,
+  "anomalies": [
+    {
+      "type": "HIGH_NULL_RATE",
+      "severity": "MEDIUM",
+      "column": "cst_fname",
+      "detail": "39.0% de valeurs manquantes",
+      "impact": "Perte de données potentielle après migration"
+    },
+    {
+      "type": "HIGH_NULL_RATE",
+      "severity": "MEDIUM",
+      "column": "cst_lname",
+      "detail": "39.0% de valeurs manquantes",
+      "impact": "Perte de données potentielle après migration"
+    },
+    {
+      "type": "HIGH_NULL_RATE",
+      "severity": "MEDIUM",
+      "column": "cst_company",
+      "detail": "47.8% de valeurs manquantes",
+      "impact": "Perte de données potentielle après migration"
+    },
+    {
+      "type": "CRITICAL_NULLS",
+      "severity": "HIGH",
+      "column": "cst_email",
+      "detail": "21 nulls sur colonne critique (4.1%)",
+      "impact": "Bloquant — insertion impossible en base cible (NOT NULL)"
+    },
+    {
+      "type": "HIGH_NULL_RATE",
+      "severity": "MEDIUM",
+      "column": "cst_segment",
+      "detail": "17.7% de valeurs manquantes",
+      "impact": "Perte de données potentielle après migration"
+    },
+    {
+      "type": "HIGH_NULL_RATE",
+      "severity": "MEDIUM",
+      "column": "cst_notes",
+      "detail": "81.4% de valeurs manquantes",
+      "impact": "Perte de données potentielle après migration"
+    },
+    {
+      "type": "DUPLICATE_KEY",
+      "severity": "HIGH",
+      "column": "cst_email",
+      "detail": "15 doublons sur colonne unique",
+      "impact": "Violation contrainte UNIQUE en base cible"
+    }
+  ],
+  "rule_results": [
+    {
+      "rule_id": "cst_id__not_null",
+      "column": "cst_id",
+      "type": "expect_column_values_to_not_be_null",
+      "severity": "CRITICAL",
+      "threshold": 1.0,
+      "description": "La colonne cst_id ne doit contenir aucun NULL",
+      "passed": true,
+      "detail": "✓ Aucun null"
+    },
+    {
+      "rule_id": "cst_id__unique",
+      "column": "cst_id",
+      "type": "expect_column_values_to_be_unique",
+      "severity": "HIGH",
+      "description": "cst_id doit être unique",
+      "passed": true,
+      "detail": "✓ Toutes les valeurs sont uniques"
+    },
+    {
+      "rule_id": "cst_fname__null_rate",
+      "column": "cst_fname",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.3,
+      "description": "Taux de null < 30% pour cst_fname",
+      "passed": false,
+      "detail": "Taux null : 39.0% (seuil 30%)"
+    },
+    {
+      "rule_id": "cst_fname__non_negative",
+      "column": "cst_fname",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "cst_fname doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "cst_lname__null_rate",
+      "column": "cst_lname",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.3,
+      "description": "Taux de null < 30% pour cst_lname",
+      "passed": false,
+      "detail": "Taux null : 39.0% (seuil 30%)"
+    },
+    {
+      "rule_id": "cst_lname__non_negative",
+      "column": "cst_lname",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "cst_lname doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "cst_company__null_rate",
+      "column": "cst_company",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.3,
+      "description": "Taux de null < 30% pour cst_company",
+      "passed": false,
+      "detail": "Taux null : 47.8% (seuil 30%)"
+    },
+    {
+      "rule_id": "cst_company__non_negative",
+      "column": "cst_company",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "cst_company doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "cst_email__not_null",
+      "column": "cst_email",
+      "type": "expect_column_values_to_not_be_null",
+      "severity": "CRITICAL",
+      "threshold": 1.0,
+      "description": "La colonne cst_email ne doit contenir aucun NULL",
+      "passed": false,
+      "detail": "21 nulls trouvés"
+    },
+    {
+      "rule_id": "cst_phone__null_rate",
+      "column": "cst_phone",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.135,
+      "description": "Taux de null < 14% pour cst_phone",
+      "passed": true,
+      "detail": "Taux null : 11.3% (seuil 14%)"
+    },
+    {
+      "rule_id": "cst_phone__non_negative",
+      "column": "cst_phone",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "cst_phone doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "cst_country__non_negative",
+      "column": "cst_country",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "cst_country doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "cst_city__non_negative",
+      "column": "cst_city",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "cst_city doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "cst_address__null_rate",
+      "column": "cst_address",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.107,
+      "description": "Taux de null < 11% pour cst_address",
+      "passed": true,
+      "detail": "Taux null : 8.9% (seuil 11%)"
+    },
+    {
+      "rule_id": "cst_address__non_negative",
+      "column": "cst_address",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "cst_address doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "cst_status__null_rate",
+      "column": "cst_status",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.054,
+      "description": "Taux de null < 5% pour cst_status",
+      "passed": true,
+      "detail": "Taux null : 4.5% (seuil 5%)"
+    },
+    {
+      "rule_id": "cst_status__non_negative",
+      "column": "cst_status",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "cst_status doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "cst_segment__null_rate",
+      "column": "cst_segment",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.212,
+      "description": "Taux de null < 21% pour cst_segment",
+      "passed": true,
+      "detail": "Taux null : 17.7% (seuil 21%)"
+    },
+    {
+      "rule_id": "cst_segment__non_negative",
+      "column": "cst_segment",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "cst_segment doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "cst_created_dt__null_rate",
+      "column": "cst_created_dt",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.03,
+      "description": "Taux de null < 3% pour cst_created_dt",
+      "passed": true,
+      "detail": "Taux null : 2.5% (seuil 3%)"
+    },
+    {
+      "rule_id": "cst_created_dt__non_negative",
+      "column": "cst_created_dt",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "cst_created_dt doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    },
+    {
+      "rule_id": "cst_notes__null_rate",
+      "column": "cst_notes",
+      "type": "expect_column_values_null_rate_below",
+      "severity": "WARNING",
+      "threshold": 0.3,
+      "description": "Taux de null < 30% pour cst_notes",
+      "passed": false,
+      "detail": "Taux null : 81.4% (seuil 30%)"
+    },
+    {
+      "rule_id": "cst_notes__non_negative",
+      "column": "cst_notes",
+      "type": "expect_column_values_to_be_between",
+      "severity": "HIGH",
+      "min_value": 0,
+      "description": "cst_notes doit être >= 0",
+      "passed": false,
+      "detail": "Erreur : '<' not supported between instances of 'str' and 'int'"
+    }
+  ],
+  "score_detail": {
+    "CRITICAL": {
+      "total": 2,
+      "passed": 1,
+      "score": 0.5
+    },
+    "HIGH": {
+      "total": 12,
+      "passed": 1,
+      "score": 0.083
+    },
+    "WARNING": {
+      "total": 9,
+      "passed": 5,
+      "score": 0.556
+    }
+  },
+  "generated_at": "2026-06-29T11:43:36.123117"
+}

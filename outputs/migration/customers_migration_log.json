@@ -1,0 +1,45 @@
+{
+  "run_id": "run_2024_v1",
+  "table": "customers",
+  "status": "success",
+  "load_stats": {
+    "source_count": 515,
+    "target_count": 480,
+    "filtered": 35,
+    "load_rate": 0.932
+  },
+  "reconciliation": {
+    "source_count": 515,
+    "target_count": 480,
+    "count_match": true,
+    "count_diff": 35,
+    "column_checks": {
+      "legacy_cst_id": {
+        "target_min": 1.0,
+        "target_max": 500.0,
+        "target_mean": 249.61,
+        "null_rate": 0.0
+      },
+      "is_company": {
+        "target_min": 0.0,
+        "target_max": 1.0,
+        "target_mean": 0.53,
+        "null_rate": 0.0
+      }
+    },
+    "sample_check": {
+      "legacy_cst_id": {
+        "unique_ok": true,
+        "duplicates": 0
+      },
+      "email": {
+        "unique_ok": true,
+        "duplicates": 0
+      }
+    },
+    "overall_ok": false
+  },
+  "drift_issues": [],
+  "errors": [],
+  "timestamp": "2026-07-03T22:42:26.828646"
+}

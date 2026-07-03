@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8">
+<title>Migration Report — order_lines</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#f8fafc; color:#0f172a; padding:28px; }
+  h1 { font-size:22px; font-weight:700; margin-bottom:4px; }
+  h2 { font-size:14px; font-weight:600; margin-bottom:12px; color:#374151; }
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:20px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:20px; }
+  .card { background:white; border:1px solid #e2e8f0; border-radius:12px; padding:20px 24px; }
+  .stat { text-align:center; }
+  .stat-num { font-size:32px; font-weight:700; }
+  .stat-lbl { font-size:12px; color:#64748b; margin-top:4px; }
+  table { width:100%; border-collapse:collapse; font-size:12.5px; }
+  th { background:#f8fafc; padding:8px 12px; text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:#64748b; border-bottom:1px solid #e2e8f0; }
+  td { padding:8px 12px; border-bottom:1px solid #f8fafc; vertical-align:top; }
+  code { background:#f1f5f9; padding:2px 6px; border-radius:4px; font-size:11px; }
+  .narrative { background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:18px 22px; font-size:13px; line-height:1.8; margin-bottom:20px; }
+  .bar-wrap { background:#f1f5f9; border-radius:99px; height:8px; margin-top:6px; }
+  .bar-fill  { height:8px; border-radius:99px; }
+</style></head><body>
+
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px">
+  <div>
+    <h1>🚀 Migration Report — <code>order_lines</code></h1>
+    <p style="font-size:13px;color:#64748b">Run: run_2024_v1 · 2026-07-03 23:13 · SmartMigrate</p>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <span style="background:#f1f5f9;padding:4px 10px;border-radius:6px;font-size:13px">Qualité pré-migration : <b>100%</b></span>
+    <div style="background:#dcfce7;padding:10px 18px;border-radius:10px;font-size:15px;font-weight:600;color:#16a34a">
+      ✅ Migration SUCCESS
+    </div>
+  </div>
+</div>
+
+<div class="grid3">
+  <div class="card stat">
+    <div class="stat-num">4,264</div>
+    <div class="stat-lbl">Lignes source (ERP)</div>
+  </div>
+  <div class="card stat">
+    <div class="stat-num" style="color:#16a34a">4,264</div>
+    <div class="stat-lbl">Lignes migrées (Cloud)</div>
+  </div>
+  <div class="card stat">
+    <div class="stat-num" style="color:#16a34a">100.0%</div>
+    <div class="stat-lbl">Taux de rétention</div>
+    <div class="bar-wrap"><div class="bar-fill" style="background:#16a34a;width:100%"></div></div>
+  </div>
+</div>
+
+<div class="narrative">
+  <strong>📝 Rapport exécutif</strong><br><br>
+  Rapport non disponible.
+</div>
+
+<div class="grid2">
+  <div class="card">
+    <h2>🔍 Réconciliation Source ↔ Target</h2>
+    <table>
+      <tr>
+        <td>Lignes source</td>
+        <td><strong>4,264</strong></td>
+      </tr>
+      <tr>
+        <td>Lignes target</td>
+        <td><strong>4,264</strong></td>
+      </tr>
+      <tr>
+        <td>Différence</td>
+        <td style="color:#16a34a">
+          +0 lignes
+        </td>
+      </tr>
+      <tr>
+        <td>Lignes filtrées</td>
+        <td>0 (doublons/invalides)</td>
+      </tr>
+      <tr>
+        <td>Statut global</td>
+        <td>⚠️ Vérifier</td>
+      </tr>
+    </table>
+    <br><table><tr><th>Colonne</th><th>Règle</th><th>Résultat</th></tr><tr><td><code>legacy_line_id</code></td><td>Unicité</td><td>✅</td></tr><tr><td><code>order_id</code></td><td>Unicité</td><td>❌ 2264 doublons</td></tr><tr><td><code>product_id</code></td><td>Unicité</td><td>❌ 4114 doublons</td></tr></table>
+  </div>
+
+  <div class="card">
+    <h2>📡 Drift Post-Migration</h2>
+    <p style="color:#16a34a;padding:20px;text-align:center">✅ Aucun drift détecté</p>
+  </div>
+</div>
+
+</body></html>

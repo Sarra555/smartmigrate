@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8">
+<title>Quality Report — orders</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#f8fafc; color:#0f172a; padding:28px; }
+  h1 { font-size:22px; font-weight:700; margin-bottom:4px; }
+  h2 { font-size:14px; font-weight:600; margin-bottom:12px; color:#374151; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px; }
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:20px; }
+  .card { background:white; border:1px solid #e2e8f0; border-radius:12px; padding:20px 24px; }
+  .stat { text-align:center; }
+  .stat-num { font-size:32px; font-weight:700; }
+  .stat-lbl { font-size:12px; color:#64748b; margin-top:4px; }
+  table { width:100%; border-collapse:collapse; font-size:12.5px; }
+  th { background:#f8fafc; padding:8px 12px; text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:#64748b; border-bottom:1px solid #e2e8f0; }
+  td { padding:8px 12px; border-bottom:1px solid #f1f5f9; vertical-align:top; }
+  code { background:#f1f5f9; padding:2px 6px; border-radius:4px; font-size:11.5px; }
+  .narrative { background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:16px 20px; font-size:13px; line-height:1.7; margin-bottom:20px; }
+</style></head><body>
+
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px">
+  <div>
+    <h1>🛡️ Data Quality Report — <code>orders</code></h1>
+    <p style="font-size:13px;color:#64748b">Généré par SmartMigrate Quality Guard · 2026-06-29 11:59</p>
+  </div>
+  <div style="background:#fee2e2;padding:10px 20px;border-radius:10px;font-size:15px;font-weight:600">
+    🚫 BLOQUÉE
+  </div>
+</div>
+
+<div class="grid3">
+  <div class="card stat">
+    <div class="stat-num" style="color:#dc2626">61%</div>
+    <div class="stat-lbl">Score de qualité global</div>
+  </div>
+  <div class="card stat">
+    <div class="stat-num">2,000</div>
+    <div class="stat-lbl">Lignes analysées</div>
+  </div>
+  <div class="card stat">
+    <div class="stat-num" style="color:#dc2626">1</div>
+    <div class="stat-lbl">Anomalies HIGH</div>
+  </div>
+</div>
+
+<div class="narrative">
+  <strong>📝 Résumé exécutif</strong><br><br>
+  Rapport narratif non disponible.
+</div>
+
+<div class="grid2">
+  <div class="card">
+    <h2>Score par dimension</h2>
+    
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+            <span style="font-size:13px;font-weight:500;color:#dc2626">CRITICAL</span>
+            <span style="font-size:13px;font-weight:600">3/4 (75%)</span>
+          </div>
+          <div style="background:#f1f5f9;border-radius:99px;height:8px">
+            <div style="background:#dc2626;height:8px;border-radius:99px;width:75%"></div>
+          </div>
+        </div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+            <span style="font-size:13px;font-weight:500;color:#d97706">HIGH</span>
+            <span style="font-size:13px;font-weight:600">4/9 (44%)</span>
+          </div>
+          <div style="background:#f1f5f9;border-radius:99px;height:8px">
+            <div style="background:#d97706;height:8px;border-radius:99px;width:44%"></div>
+          </div>
+        </div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+            <span style="font-size:13px;font-weight:500;color:#2563eb">WARNING</span>
+            <span style="font-size:13px;font-weight:600">5/6 (83%)</span>
+          </div>
+          <div style="background:#f1f5f9;border-radius:99px;height:8px">
+            <div style="background:#2563eb;height:8px;border-radius:99px;width:83%"></div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <h2>Profil de la table</h2>
+    <table>
+      <tr><th>Colonne</th><th>Type</th><th>Nulls</th><th>Uniques</th></tr>
+      <tr><td><code>ord_id</code></td><td style="color:#64748b;font-size:11px">int64</td><td style="color:#374151">0.0%</td><td>2000</td></tr><tr><td><code>ord_ref</code></td><td style="color:#64748b;font-size:11px">str</td><td style="color:#374151">0.0%</td><td>2000</td></tr><tr><td><code>ord_cst_id</code></td><td style="color:#64748b;font-size:11px">int64</td><td style="color:#374151">0.0%</td><td>505</td></tr><tr><td><code>ord_date</code></td><td style="color:#64748b;font-size:11px">str</td><td style="color:#374151">3.5%</td><td>1677</td></tr><tr><td><code>ord_exp_deliver</code></td><td style="color:#64748b;font-size:11px">str</td><td style="color:#374151">2.6%</td><td>1667</td></tr><tr><td><code>ord_delivered</code></td><td style="color:#64748b;font-size:11px">str</td><td style="color:#dc2626">17.8%</td><td>1429</td></tr><tr><td><code>ord_status</code></td><td style="color:#64748b;font-size:11px">str</td><td style="color:#374151">0.0%</td><td>20</td></tr><tr><td><code>ord_total_ht</code></td><td style="color:#64748b;font-size:11px">float64</td><td style="color:#374151">1.0%</td><td>1978</td></tr><tr><td><code>ord_tva</code></td><td style="color:#64748b;font-size:11px">float64</td><td style="color:#374151">5.3%</td><td>3</td></tr><tr><td><code>ord_channel</code></td><td style="color:#64748b;font-size:11px">str</td><td style="color:#374151">4.7%</td><td>4</td></tr><tr><td><code>ord_notes</code></td><td style="color:#64748b;font-size:11px">str</td><td style="color:#dc2626">89.3%</td><td>213</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="card" style="margin-bottom:20px">
+  <h2 style="margin-bottom:16px">⚠️ Anomalies détectées (3)</h2>
+  <table>
+    <tr><th>Sévérité</th><th>Colonne</th><th>Type</th><th>Détail</th><th>Impact</th></tr>
+    
+        <tr>
+          <td><span style="color:#dc2626;font-weight:600">HIGH</span></td>
+          <td><code>ord_date</code></td>
+          <td>CRITICAL_NULLS</td>
+          <td>71 nulls sur colonne critique (3.5%)</td>
+          <td style="color:#64748b;font-size:11px">Bloquant — insertion impossible en base cible (NOT NULL)</td>
+        </tr>
+        <tr>
+          <td><span style="color:#d97706;font-weight:600">MEDIUM</span></td>
+          <td><code>ord_delivered</code></td>
+          <td>HIGH_NULL_RATE</td>
+          <td>17.8% de valeurs manquantes</td>
+          <td style="color:#64748b;font-size:11px">Perte de données potentielle après migration</td>
+        </tr>
+        <tr>
+          <td><span style="color:#d97706;font-weight:600">MEDIUM</span></td>
+          <td><code>ord_notes</code></td>
+          <td>HIGH_NULL_RATE</td>
+          <td>89.3% de valeurs manquantes</td>
+          <td style="color:#64748b;font-size:11px">Perte de données potentielle après migration</td>
+        </tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2 style="margin-bottom:16px">📋 Règles de validation (19 règles)</h2>
+  <table>
+    <tr><th>Statut</th><th>Règle</th><th>Sévérité</th><th>Description</th><th>Résultat</th></tr>
+    
+        <tr style="background:#f0fdf4">
+          <td>✅</td>
+          <td><code>ord_id__not_null</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">CRITICAL</span></td>
+          <td style="font-size:12px">La colonne ord_id ne doit contenir aucun NULL</td>
+          <td style="font-size:12px;color:#475569">✓ Aucun null</td>
+        </tr>
+        <tr style="background:#f0fdf4">
+          <td>✅</td>
+          <td><code>ord_id__unique</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">HIGH</span></td>
+          <td style="font-size:12px">ord_id doit être unique</td>
+          <td style="font-size:12px;color:#475569">✓ Toutes les valeurs sont uniques</td>
+        </tr>
+        <tr style="background:#fef2f2">
+          <td>❌</td>
+          <td><code>ord_ref__non_negative</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">HIGH</span></td>
+          <td style="font-size:12px">ord_ref doit être >= 0</td>
+          <td style="font-size:12px;color:#475569">Erreur : '<' not supported between instances of 'str' and 'int'</td>
+        </tr>
+        <tr style="background:#f0fdf4">
+          <td>✅</td>
+          <td><code>ord_ref__unique</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">HIGH</span></td>
+          <td style="font-size:12px">ord_ref doit être unique</td>
+          <td style="font-size:12px;color:#475569">✓ Toutes les valeurs sont uniques</td>
+        </tr>
+        <tr style="background:#f0fdf4">
+          <td>✅</td>
+          <td><code>ord_cst_id__not_null</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">CRITICAL</span></td>
+          <td style="font-size:12px">La colonne ord_cst_id ne doit contenir aucun NULL</td>
+          <td style="font-size:12px;color:#475569">✓ Aucun null</td>
+        </tr>
+        <tr style="background:#fef2f2">
+          <td>❌</td>
+          <td><code>ord_date__not_null</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">CRITICAL</span></td>
+          <td style="font-size:12px">La colonne ord_date ne doit contenir aucun NULL</td>
+          <td style="font-size:12px;color:#475569">71 nulls trouvés</td>
+        </tr>
+        <tr style="background:#f0fdf4">
+          <td>✅</td>
+          <td><code>ord_exp_deliver__null_rate</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">WARNING</span></td>
+          <td style="font-size:12px">Taux de null < 3% pour ord_exp_deliver</td>
+          <td style="font-size:12px;color:#475569">Taux null : 2.6% (seuil 3%)</td>
+        </tr>
+        <tr style="background:#fef2f2">
+          <td>❌</td>
+          <td><code>ord_exp_deliver__non_negative</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">HIGH</span></td>
+          <td style="font-size:12px">ord_exp_deliver doit être >= 0</td>
+          <td style="font-size:12px;color:#475569">Erreur : '<' not supported between instances of 'str' and 'int'</td>
+        </tr>
+        <tr style="background:#f0fdf4">
+          <td>✅</td>
+          <td><code>ord_delivered__null_rate</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">WARNING</span></td>
+          <td style="font-size:12px">Taux de null < 21% pour ord_delivered</td>
+          <td style="font-size:12px;color:#475569">Taux null : 17.8% (seuil 21%)</td>
+        </tr>
+        <tr style="background:#fef2f2">
+          <td>❌</td>
+          <td><code>ord_delivered__non_negative</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">HIGH</span></td>
+          <td style="font-size:12px">ord_delivered doit être >= 0</td>
+          <td style="font-size:12px;color:#475569">Erreur : '<' not supported between instances of 'str' and 'int'</td>
+        </tr>
+        <tr style="background:#f0fdf4">
+          <td>✅</td>
+          <td><code>ord_status__not_null</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">CRITICAL</span></td>
+          <td style="font-size:12px">La colonne ord_status ne doit contenir aucun NULL</td>
+          <td style="font-size:12px;color:#475569">✓ Aucun null</td>
+        </tr>
+        <tr style="background:#f0fdf4">
+          <td>✅</td>
+          <td><code>ord_total_ht__null_rate</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">WARNING</span></td>
+          <td style="font-size:12px">Taux de null < 1% pour ord_total_ht</td>
+          <td style="font-size:12px;color:#475569">Taux null : 1.0% (seuil 1%)</td>
+        </tr>
+        <tr style="background:#f0fdf4">
+          <td>✅</td>
+          <td><code>ord_total_ht__non_negative</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">HIGH</span></td>
+          <td style="font-size:12px">ord_total_ht doit être >= 0</td>
+          <td style="font-size:12px;color:#475569">✓ Toutes >= 0</td>
+        </tr>
+        <tr style="background:#f0fdf4">
+          <td>✅</td>
+          <td><code>ord_tva__null_rate</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">WARNING</span></td>
+          <td style="font-size:12px">Taux de null < 6% pour ord_tva</td>
+          <td style="font-size:12px;color:#475569">Taux null : 5.3% (seuil 6%)</td>
+        </tr>
+        <tr style="background:#f0fdf4">
+          <td>✅</td>
+          <td><code>ord_tva__non_negative</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">HIGH</span></td>
+          <td style="font-size:12px">ord_tva doit être >= 0</td>
+          <td style="font-size:12px;color:#475569">✓ Toutes >= 0</td>
+        </tr>
+        <tr style="background:#f0fdf4">
+          <td>✅</td>
+          <td><code>ord_channel__null_rate</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">WARNING</span></td>
+          <td style="font-size:12px">Taux de null < 6% pour ord_channel</td>
+          <td style="font-size:12px;color:#475569">Taux null : 4.7% (seuil 6%)</td>
+        </tr>
+        <tr style="background:#fef2f2">
+          <td>❌</td>
+          <td><code>ord_channel__non_negative</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">HIGH</span></td>
+          <td style="font-size:12px">ord_channel doit être >= 0</td>
+          <td style="font-size:12px;color:#475569">Erreur : '<' not supported between instances of 'str' and 'int'</td>
+        </tr>
+        <tr style="background:#fef2f2">
+          <td>❌</td>
+          <td><code>ord_notes__null_rate</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">WARNING</span></td>
+          <td style="font-size:12px">Taux de null < 30% pour ord_notes</td>
+          <td style="font-size:12px;color:#475569">Taux null : 89.3% (seuil 30%)</td>
+        </tr>
+        <tr style="background:#fef2f2">
+          <td>❌</td>
+          <td><code>ord_notes__non_negative</code></td>
+          <td><span style="font-size:11px;padding:2px 6px;border-radius:4px;background:#f1f5f9">HIGH</span></td>
+          <td style="font-size:12px">ord_notes doit être >= 0</td>
+          <td style="font-size:12px;color:#475569">Erreur : '<' not supported between instances of 'str' and 'int'</td>
+        </tr>
+  </table>
+</div>
+
+</body></html>

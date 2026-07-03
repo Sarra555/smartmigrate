@@ -1,0 +1,80 @@
+{
+  "table_source": "suppliers",
+  "table_target": "suppliers",
+  "migration_complexity": "low",
+  "complexity_reason": "Table simple, peu de données",
+  "mappings": [
+    {
+      "source_col": "sup_id",
+      "target_col": "legacy_sup_id",
+      "transform": "direct",
+      "confidence": 0.99,
+      "notes": "PK source"
+    },
+    {
+      "source_col": "sup_name",
+      "target_col": "name",
+      "transform": "direct",
+      "confidence": 0.99,
+      "notes": "Nom fournisseur"
+    },
+    {
+      "source_col": "sup_country",
+      "target_col": "country_code",
+      "transform": "normalize_country",
+      "confidence": 0.88,
+      "notes": "Pays ISO 2"
+    },
+    {
+      "source_col": "sup_contact",
+      "target_col": "contact_name",
+      "transform": "direct",
+      "confidence": 0.97,
+      "notes": "Nom contact"
+    },
+    {
+      "source_col": "sup_email",
+      "target_col": "email",
+      "transform": "direct",
+      "confidence": 0.95,
+      "notes": "Email"
+    },
+    {
+      "source_col": "sup_phone",
+      "target_col": "phone",
+      "transform": "normalize_phone",
+      "confidence": 0.77,
+      "notes": "Formats mixtes"
+    },
+    {
+      "source_col": "sup_rating",
+      "target_col": "rating",
+      "transform": "direct",
+      "confidence": 0.95,
+      "notes": "Note 1-5"
+    },
+    {
+      "source_col": "sup_active",
+      "target_col": "is_active",
+      "transform": "normalize_bool",
+      "confidence": 0.8,
+      "notes": "Y/N/1/0 → BOOLEAN"
+    },
+    {
+      "source_col": "sup_since",
+      "target_col": "partner_since",
+      "transform": "normalize_date",
+      "confidence": 0.75,
+      "notes": "Dates mixtes"
+    }
+  ],
+  "unmapped_source": [],
+  "unmapped_target": [
+    "supplier_id",
+    "migrated_at"
+  ],
+  "migration_risks": [
+    "Téléphones en formats mixtes",
+    "~5% de pays manquants"
+  ]
+}

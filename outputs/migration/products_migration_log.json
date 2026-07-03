@@ -1,0 +1,57 @@
+{
+  "run_id": "run_2024_v1",
+  "table": "products",
+  "status": "success",
+  "load_stats": {
+    "source_count": 150,
+    "target_count": 150,
+    "filtered": 0,
+    "load_rate": 1.0
+  },
+  "reconciliation": {
+    "source_count": 150,
+    "target_count": 150,
+    "count_match": true,
+    "count_diff": 0,
+    "column_checks": {
+      "legacy_prod_id": {
+        "target_min": 1.0,
+        "target_max": 150.0,
+        "target_mean": 75.5,
+        "null_rate": 0.0
+      },
+      "unit_price": {
+        "target_min": 25.88,
+        "target_max": 4984.0,
+        "target_mean": 2465.85,
+        "null_rate": 0.02
+      },
+      "stock_qty": {
+        "target_min": 0.0,
+        "target_max": 497.0,
+        "target_mean": 227.93,
+        "null_rate": 0.0
+      },
+      "is_active": {
+        "target_min": 0.0,
+        "target_max": 1.0,
+        "target_mean": 0.77,
+        "null_rate": 0.0
+      }
+    },
+    "sample_check": {
+      "legacy_prod_id": {
+        "unique_ok": true,
+        "duplicates": 0
+      },
+      "reference": {
+        "unique_ok": true,
+        "duplicates": 0
+      }
+    },
+    "overall_ok": true
+  },
+  "drift_issues": [],
+  "errors": [],
+  "timestamp": "2026-07-03T22:50:12.054134"
+}

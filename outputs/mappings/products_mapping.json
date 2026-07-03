@@ -1,0 +1,88 @@
+{
+  "table_source": "products",
+  "table_target": "products",
+  "migration_complexity": "medium",
+  "complexity_reason": "Stocks négatifs, devise non normalisée, booléens encodés",
+  "mappings": [
+    {
+      "source_col": "prod_id",
+      "target_col": "legacy_prod_id",
+      "transform": "direct",
+      "confidence": 0.99,
+      "notes": "PK source"
+    },
+    {
+      "source_col": "prod_ref",
+      "target_col": "reference",
+      "transform": "direct",
+      "confidence": 0.97,
+      "notes": "Référence produit"
+    },
+    {
+      "source_col": "prod_name",
+      "target_col": "name",
+      "transform": "direct",
+      "confidence": 0.97,
+      "notes": "Nom produit"
+    },
+    {
+      "source_col": "prod_category",
+      "target_col": "category",
+      "transform": "direct",
+      "confidence": 0.93,
+      "notes": "Catégorie"
+    },
+    {
+      "source_col": "prod_price",
+      "target_col": "unit_price",
+      "transform": "cast_numeric",
+      "confidence": 0.88,
+      "notes": "Prix — clip(lower=0)"
+    },
+    {
+      "source_col": "prod_currency",
+      "target_col": "currency_code",
+      "transform": "normalize_country",
+      "confidence": 0.71,
+      "notes": "tnd/TND/eur → ISO 4217"
+    },
+    {
+      "source_col": "prod_stock",
+      "target_col": "stock_qty",
+      "transform": "cast_numeric",
+      "confidence": 0.75,
+      "notes": "Stocks négatifs → 0"
+    },
+    {
+      "source_col": "prod_unit",
+      "target_col": "unit",
+      "transform": "direct",
+      "confidence": 0.9,
+      "notes": "Unité"
+    },
+    {
+      "source_col": "prod_active",
+      "target_col": "is_active",
+      "transform": "normalize_bool",
+      "confidence": 0.73,
+      "notes": "Y/N/1/0 → BOOLEAN"
+    },
+    {
+      "source_col": "prod_created",
+      "target_col": "created_at",
+      "transform": "normalize_date",
+      "confidence": 0.69,
+      "notes": "Formats dates mixtes"
+    }
+  ],
+  "unmapped_source": [],
+  "unmapped_target": [
+    "product_id",
+    "migrated_at"
+  ],
+  "migration_risks": [
+    "Stocks négatifs (~1-4%) → remplacés par 0",
+    "Devise non normalisée (tnd/TND/EUR)",
+    "Prix manquants (~2%)"
+  ]
+}
