@@ -208,7 +208,7 @@ MIGRATION_RUN_ID=run_2024_v1
 
 **Sarra Aouadi** — Data Migration & AI Engineer  
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Sarra_Aouadi-blue?logo=linkedin)](https://linkedin.com/in/sarra-aouadi)
-[![GitHub](https://img.shields.io/badge/GitHub-ton--username-black?logo=github)](https://github.com/Sarra555)
+[![GitHub](https://img.shields.io/badge/GitHub-ton--username-black?logo=github)] Sarra555
 
 ---
 
